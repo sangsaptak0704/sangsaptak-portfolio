@@ -7,7 +7,7 @@ header {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(6, 8, 20, 0.75);
+  background: rgba(3, 7, 18, 0.75);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
@@ -15,7 +15,7 @@ header {
 }
 
 header.scrolled {
-  background: rgba(6, 8, 20, 0.9);
+  background: rgba(3, 7, 18, 0.9);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -798,7 +798,7 @@ footer span {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #060814;
+  background-color: #030712;
   z-index: 9999;
   display: flex;
   justify-content: center;
