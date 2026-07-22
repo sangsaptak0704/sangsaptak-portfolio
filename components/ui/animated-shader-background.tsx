@@ -77,22 +77,22 @@ const AnimatedShaderBackground: React.FC<AnimatedShaderBackgroundProps> = ({
 
           float f = 2.0 + fbm(p + vec2(iTime * 5.0, 0.0)) * 0.5;
 
-          for (float i = 0.0; i < 35.0; i++) {
-            v = p + cos(i * i + (iTime + p.x * 0.08) * 0.025 + i * vec2(13.0, 11.0)) * 3.5 + vec2(sin(iTime * 3.0 + i) * 0.003, cos(iTime * 3.5 - i) * 0.003);
-            float tailNoise = fbm(v + vec2(iTime * 0.5, i)) * 0.3 * (1.0 - (i / 35.0));
+          for (float i = 0.0; i < 24.0; i++) {
+            v = p + cos(i * i + (iTime + p.x * 0.06) * 0.015 + i * vec2(13.0, 11.0)) * 3.5 + vec2(sin(iTime * 1.5 + i) * 0.003, cos(iTime * 1.8 - i) * 0.003);
+            float tailNoise = fbm(v + vec2(iTime * 0.25, i)) * 0.3 * (1.0 - (i / 24.0));
             vec4 auroraColors = vec4(
-              0.1 + 0.3 * sin(i * 0.2 + iTime * 0.4),
-              0.3 + 0.5 * cos(i * 0.3 + iTime * 0.5),
-              0.7 + 0.3 * sin(i * 0.4 + iTime * 0.3),
+              0.1 + 0.3 * sin(i * 0.2 + iTime * 0.2),
+              0.3 + 0.5 * cos(i * 0.3 + iTime * 0.25),
+              0.7 + 0.3 * sin(i * 0.4 + iTime * 0.2),
               1.0
             );
-            vec4 currentContribution = auroraColors * exp(sin(i * i + iTime * 0.8)) / length(max(v, vec2(v.x * f * 0.015, v.y * 1.5)));
-            float thinnessFactor = smoothstep(0.0, 1.0, i / 35.0) * 0.6;
+            vec4 currentContribution = auroraColors * exp(sin(i * i + iTime * 0.4)) / length(max(v, vec2(v.x * f * 0.015, v.y * 1.5)));
+            float thinnessFactor = smoothstep(0.0, 1.0, i / 24.0) * 0.5;
             o += currentContribution * (1.0 + tailNoise * 0.8) * thinnessFactor;
           }
 
           o = tanh(pow(o / 100.0, vec4(1.6)));
-          gl_FragColor = o * 1.5;
+          gl_FragColor = o * 1.35;
         }
       `
     });
@@ -103,7 +103,7 @@ const AnimatedShaderBackground: React.FC<AnimatedShaderBackgroundProps> = ({
 
     let frameId: number;
     const animate = () => {
-      material.uniforms.iTime.value += 0.016;
+      material.uniforms.iTime.value += 0.008;
       renderer.render(scene, camera);
       frameId = requestAnimationFrame(animate);
     };
