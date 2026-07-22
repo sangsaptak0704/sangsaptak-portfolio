@@ -526,19 +526,64 @@ function App() {
                 </div>
               </div>
 
-              {/* Right Side: Intro & Paragraphs */}
+              {/* Right Side: Luxury Typography & Text Presentation */}
               <div className="about-content-side">
-                <div className="about-tag">— WHO AM I —</div>
-                <h3 className="about-title-large">
-                  Bridging <span className="accent-text">Software & AI</span> Solutions
+                <div className="luxury-text-badge">
+                  <span className="badge-sparkle">✦</span>
+                  <span>WHO I AM & WHAT I BUILD</span>
+                  <span className="badge-glow-dot"></span>
+                </div>
+                <h3 className="about-title-luxury">
+                  Architecting Intelligent <span className="text-shimmer-accent">Software & AI</span> Systems
                 </h3>
-                <div className="about-paragraphs">
-                  <p>
-                    I am a detail-oriented <strong>Computer Science & Engineering</strong> student at <strong>Brainware University</strong>, specialising in <strong>Artificial Intelligence and Machine Learning</strong>. Based in <strong>Kolkata</strong>, I am passionate about bridging the gap between robust software architecture and intelligent system design.
-                  </p>
-                  <p>
-                    With a strong foundation in Python, Java, C/C++, and scalable backend databases, I focus on building stable applications. My technical toolkit is complemented by a creative background in <strong>singing and also drawing</strong>.
-                  </p>
+
+                <div className="luxury-glass-text-panel">
+                  <div className="luxury-left-accent-line"></div>
+                  <div className="text-area-ambient-glow"></div>
+                  
+                  <div className="luxury-text-wrapper">
+                    <motion.p 
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.1 }}
+                      viewport={{ once: true }}
+                      className="luxury-paragraph"
+                    >
+                      I am a detail-oriented <span className="shimmer-keyword">Computer Science & Engineering</span> student at <span className="shimmer-keyword">Brainware University</span>, specialising in <span className="shimmer-keyword">Artificial Intelligence & Machine Learning</span>.
+                    </motion.p>
+
+                    <div className="luxury-text-divider">
+                      <span className="divider-line"></span>
+                      <span className="divider-diamond">◈</span>
+                      <span className="divider-line"></span>
+                    </div>
+
+                    <motion.p 
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.25 }}
+                      viewport={{ once: true }}
+                      className="luxury-paragraph"
+                    >
+                      Based in <span className="shimmer-keyword">Kolkata</span>, I am passionate about bridging the gap between robust software architecture and intelligent system design.
+                    </motion.p>
+
+                    <div className="luxury-text-divider">
+                      <span className="divider-line"></span>
+                      <span className="divider-diamond">◈</span>
+                      <span className="divider-line"></span>
+                    </div>
+
+                    <motion.p 
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.4 }}
+                      viewport={{ once: true }}
+                      className="luxury-paragraph"
+                    >
+                      With a strong foundation in <span className="shimmer-keyword">Python, Java, C/C++</span>, and scalable backend databases, I focus on building stable applications. My technical toolkit is complemented by a creative background in <span className="shimmer-keyword">singing & drawing</span>.
+                    </motion.p>
+                  </div>
                 </div>
               </div>
             </div>
