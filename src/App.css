@@ -411,11 +411,25 @@ header.luxury-header.scrolled nav.luxury-navbar {
 }
 
 .hero-tagline {
-  font-size: 0.96rem;
-  font-weight: 450;
-  color: rgba(248, 250, 252, 0.72);
-  letter-spacing: 0.3px;
-  margin-bottom: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Satoshi', 'Inter', system-ui, sans-serif;
+  font-size: 1.38rem; /* 22px desktop */
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(226, 232, 240, 0.78) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 10px;
+  margin-bottom: 32px;
+  max-width: 580px;
+}
+
+@media (max-width: 768px) {
+  .hero-tagline {
+    font-size: 1.15rem;
+    margin-bottom: 24px;
+  }
 }
 
 /* Status Pill Cards */
