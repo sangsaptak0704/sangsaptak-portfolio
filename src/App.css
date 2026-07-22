@@ -379,22 +379,97 @@ header.luxury-header.scrolled nav.luxury-navbar {
   100% { background-position: 0% center; }
 }
 
-.hero-subtitle {
-  font-size: 1.35rem;
-  font-weight: 500;
-  color: #94a3b8;
-  margin-bottom: 22px;
-  line-height: 1.45;
+.hero-tech-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #38bdf8;
+  text-transform: uppercase;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace, sans-serif;
+  opacity: 0.9;
+}
+
+/* Rotating Role Text */
+.hero-role-container {
+  min-height: 32px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-role-rotating-text {
+  font-size: 1.3rem;
+  font-weight: 600;
   letter-spacing: -0.01em;
+  background: linear-gradient(90deg, #38bdf8 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 .hero-description {
   font-size: 1.05rem;
   line-height: 1.85;
   color: rgba(248, 250, 252, 0.78);
-  max-width: 480px;
-  margin-bottom: 38px;
+  max-width: 500px;
+  margin-bottom: 24px;
   font-weight: 350;
+}
+
+/* Status Pill Cards */
+.hero-stat-cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.hero-stat-pill {
+  padding: 6px 14px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: rgba(248, 250, 252, 0.85);
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  transition: all 0.25s ease;
+  letter-spacing: 0.2px;
+}
+
+.hero-stat-pill.highlight-pill {
+  background: rgba(56, 189, 248, 0.1);
+  border-color: rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+}
+
+.hero-stat-pill:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #ffffff;
+}
+
+/* Bottom Info */
+.hero-bottom-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 22px;
+  font-size: 0.88rem;
+  color: rgba(248, 250, 252, 0.75);
+}
+
+.info-item-dot {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.status-available {
+  color: #4ade80;
+  font-weight: 500;
 }
 
 /* Button Upgrades */

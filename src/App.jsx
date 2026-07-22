@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import * as Icons from 'lucide-react'
 import profileImg from './assets/profile.jpg'
 import sdLogoImg from './assets/sd-logo.png'
@@ -7,6 +7,14 @@ import { RobotCanvas } from './components/ui/robot-hero'
 import AnimatedShaderBackground from './components/ui/animated-shader-background'
 import HologramAvatarCanvas from './components/ui/hologram-avatar'
 import './App.css'
+
+const HERO_ROLES = [
+  "AI & ML Student",
+  "Software Developer",
+  "Backend Enthusiast",
+  "Problem Solver",
+  "Continuous Learner"
+];
 
 // Centralized portfolio data config for easy customization
 const PORTFOLIO_DATA = {
@@ -292,6 +300,15 @@ function App() {
     return () => { mounted = false; };
   }, []);
 
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+
+  useEffect(() => {
+    const roleTimer = setInterval(() => {
+      setCurrentRoleIndex((prev) => (prev + 1) % HERO_ROLES.length);
+    }, 2800);
+    return () => clearInterval(roleTimer);
+  }, []);
+
   // Auto scroll to bottom of chat
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -495,16 +512,27 @@ function App() {
           <div className="hero-left-content">
             <div className="hero-text-radial-glow" />
             
+            {/* Top Compact Glass Badge */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="hero-tag"
             >
-              <DynamicIcon name="Sparkles" size={16} />
-              <span>{PORTFOLIO_DATA.tag}</span>
+              <span>🚀 Building Intelligent Software</span>
             </motion.div>
 
+            {/* Section Label */}
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="hero-tech-label"
+            >
+              &lt; AI &amp; SOFTWARE DEVELOPER /&gt;
+            </motion.div>
+
+            {/* Main Heading */}
             <motion.h1 
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
@@ -515,28 +543,56 @@ function App() {
               <span className="hero-name-gradient">{PORTFOLIO_DATA.name}</span>
             </motion.h1>
 
-            <motion.h2 
-              initial={{ opacity: 0, y: 25 }}
+            {/* Rotating Professional Role */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="hero-subtitle"
+              transition={{ duration: 0.7, delay: 0.25 }}
+              className="hero-role-container"
             >
-              {PORTFOLIO_DATA.role}
-            </motion.h2>
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentRoleIndex}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.45, ease: "easeOut" }}
+                  className="hero-role-rotating-text"
+                >
+                  {HERO_ROLES[currentRoleIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </motion.div>
 
+            {/* Description */}
             <motion.p 
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.45 }}
+              transition={{ duration: 0.7, delay: 0.35 }}
               className="hero-description"
             >
-              I build clean, functional, and intelligent software solutions. Passionate about Artificial Intelligence, Machine Learning, and full-stack development.
+              I build modern, scalable software powered by Artificial Intelligence and clean engineering principles. Currently pursuing Computer Science with a specialization in AI &amp; Machine Learning while continuously learning and building impactful real-world projects.
             </motion.p>
 
+            {/* Status Cards */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.45 }}
+              className="hero-stat-cards"
+            >
+              <motion.span whileHover={{ y: -2 }} className="hero-stat-pill">9.6 CGPA</motion.span>
+              <motion.span whileHover={{ y: -2 }} className="hero-stat-pill">2028 Graduate</motion.span>
+              <motion.span whileHover={{ y: -2 }} className="hero-stat-pill">Python • Java • C</motion.span>
+              <motion.span whileHover={{ y: -2 }} className="hero-stat-pill">AI &amp; ML</motion.span>
+              <motion.span whileHover={{ y: -2 }} className="hero-stat-pill highlight-pill">Open to Internships</motion.span>
+            </motion.div>
+
+            {/* Action Buttons */}
             <motion.div 
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.6 }}
+              transition={{ duration: 0.7, delay: 0.55 }}
               className="hero-buttons"
             >
               <motion.a 
@@ -560,6 +616,18 @@ function App() {
                 <span className="contact-btn-glow-border" />
                 Contact Me
               </motion.a>
+            </motion.div>
+
+            {/* Bottom Info */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.65 }}
+              className="hero-bottom-info"
+            >
+              <span className="info-item">📍 Kolkata, India</span>
+              <span className="info-item-dot">•</span>
+              <span className="info-item status-available">🟢 Available for Internship</span>
             </motion.div>
           </div>
 
